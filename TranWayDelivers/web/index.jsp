@@ -14,7 +14,7 @@
     </head>
     <body>
         <img src="subwayLanche.jpg" style="height: 100%; width: 100%;"/>
-        <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
+        <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark justify-content-end">
             <a class="navbar-brand" href="#">Logo</a>
             <ul class="navbar-nav">
                 <li class="nav-item active">
