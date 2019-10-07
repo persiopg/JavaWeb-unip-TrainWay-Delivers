@@ -9,6 +9,10 @@ body{
     background: linear-gradient(90deg,#ffff99,#00ff00);
 }
 
+.cabecario{
+    background: rgba(0, 0, 0, 0.9);
+}
+
 nav.navbar-transparente {
 	background: rgba(255, 204, 153, 0.9);
         color:black;
