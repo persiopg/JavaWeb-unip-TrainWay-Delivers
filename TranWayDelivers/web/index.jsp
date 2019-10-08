@@ -1,8 +1,4 @@
-<%-- 
-    Document   : index
-    Created on : 30/09/2019, 09:12:34
-    Author     : persio
---%>
+
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -30,21 +26,21 @@
                               </ol>
                               <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="subwayLanche.jpg" class="d-block w-100 imgCarrosel">
+                                    <img src="Img/subwayLanche.jpg" class="d-block w-100 imgCarrosel">
                                   <div class="carousel-caption d-none d-md-block">
                                     <h5>First slide label</h5>
                                     <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                                   </div>
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="download.jpg" class="d-block w-100 imgCarrosel">
+                                    <img src="Img/download.jpg" class="d-block w-100 imgCarrosel">
                                   <div class="carousel-caption d-none d-md-block">
                                     <h5>Second slide label</h5>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                   </div>
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="lanche.jpg" class="d-block w-100 imgCarrosel" >
+                                    <img src="Img/lanche.jpg" class="d-block w-100 imgCarrosel" >
                                   <div class="carousel-caption d-none d-md-block">
                                     <h5>Third slide label</h5>
                                     <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
@@ -78,7 +74,7 @@
         <div class="container cardLanche">
             <div class="row">
                 <div class="card col-md-4" style="width:400px">
-                    <img class="card-img-top" src="download.jpg" alt="Card image" style="width:100%">
+                    <img class="card-img-top" src="Img/download.jpg" alt="Card image" style="width:100%">
                     <div class="card-body">
                         <h4 class="card-title">John Doe</h4>
                         <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
@@ -87,7 +83,7 @@
                 </div>
 
                 <div class="card col-md-4" style="width:400px">
-                    <img class="card-img-top" src="download.jpg" alt="Card image" style="width:100%">
+                    <img class="card-img-top" src="Img/download.jpg" alt="Card image" style="width:100%">
                     <div class="card-body">
                       <h4 class="card-title">John Doe</h4>
                       <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
@@ -99,8 +95,8 @@
                     <form action="pagViewLsnche.jsp" >
                         <img class="card-img-top" src="${tes.caminho}" alt="Card image" style="width:100%">
                         <div class="card-body">
-                          <h4 class="card-title" id="feliz">MC feliz</h4>
-                          <p class="card-text" id="tCard" name="formP">Some example text some example text. John Doe is an architect and engineer</p>
+                          <h4 class="card-title" name="lanche" value="lanche">MC feliz</h4>
+                          <p class="card-text" value="descLanche" name="descLanche">Some example text some example text. John Doe is an architect and engineer</p>
                           <input type="submit" class="btn btn-primary" value="ver"/>
                         </div>
                     </form>

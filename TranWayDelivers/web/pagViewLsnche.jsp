@@ -1,9 +1,3 @@
-<%-- 
-    Document   : pagViewLsnche
-    Created on : 07/10/2019, 09:26:50
-    Author     : alunos02
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -18,7 +12,15 @@
     <body>
 
         <c:import url="menu.jsp"/>
+        <% 
         
+            String nomeLanche = request.getParameter("lanche");
+            String descLanche = request.getParameter("descLanche");
+            
+            out.print("nome lanche: " + nomeLanche + "<br/>");
+            out.print("descricao lanche: " + descLanche);
+            
+        %>
         
         
         
