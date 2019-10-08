@@ -11,7 +11,7 @@ public class DaoUtil {
     public static EntityManager em;
     
     public void abreConexao(){
-        emf = Persistence.createEntityManagerFactory("TranWayDeliversPU");
+        emf = Persistence.createEntityManagerFactory("JndiLanchoneteWeb");
         em = emf.createEntityManager();
         em.getTransaction().begin();
     }

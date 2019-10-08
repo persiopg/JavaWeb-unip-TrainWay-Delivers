@@ -38,4 +38,5 @@
         <property name="driverClass" value="org.postgresql.Driver"/>
     </jdbc-connection-pool>
     <jdbc-resource enabled="true" jndi-name="jdniLAnchonete" object-type="user" pool-name="post-gre-sql_lanchoneteWeb_usuarioPool"/>
+    <jdbc-resource enabled="true" jndi-name="JndiLanchoneteWeb" object-type="user" pool-name="post-gre-sql_lanchoneteWeb_usuarioPool"/>
 </resources>

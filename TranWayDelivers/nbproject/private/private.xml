@@ -3,9 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/user/Desktop/JavaWeb-unip-TrainWay-Delivers/TranWayDelivers/web/pagViewLsnche.jsp</file>
+            <file>file:/C:/Users/user/Desktop/JavaWeb-unip-TrainWay-Delivers/TranWayDelivers/src/java/Dao/DaoUtil.java</file>
+            <file>file:/C:/Users/user/Desktop/JavaWeb-unip-TrainWay-Delivers/TranWayDelivers/src/java/entidades/TbLanches.java</file>
+            <file>file:/C:/Users/user/Desktop/JavaWeb-unip-TrainWay-Delivers/TranWayDelivers/src/java/view/ServletLanches.java</file>
+            <file>file:/C:/Users/user/Desktop/JavaWeb-unip-TrainWay-Delivers/TranWayDelivers/src/java/Dao/DaoLanches.java</file>
+            <file>file:/C:/Users/user/Desktop/JavaWeb-unip-TrainWay-Delivers/TranWayDelivers/src/conf/persistence.xml</file>
             <file>file:/C:/Users/user/Desktop/JavaWeb-unip-TrainWay-Delivers/TranWayDelivers/web/index.jsp</file>
-            <file>file:/C:/Users/user/Desktop/JavaWeb-unip-TrainWay-Delivers/TranWayDelivers/src/java/Dao/daoCaminho.java</file>
         </group>
     </open-files>
 </project-private>

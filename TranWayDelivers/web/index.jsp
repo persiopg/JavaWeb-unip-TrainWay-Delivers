@@ -1,5 +1,9 @@
 
 
+<%@page import="Dao.DaoLanches"%>
+<%@page import="java.util.List"%>
+<%@page import="Dao.TbLanches"%>
+<%@page import="view.ServletLanches"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="menu" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -62,7 +66,6 @@
             </div>
         </header>
         <menu:import url="menu.jsp"/>
-        <jsp:useBean id="tes" class="Dao.daoCaminho" scope="session"/>
             
         <!-- espaco entre menu e o conteudo-->
         <div class="container">
@@ -71,37 +74,26 @@
             </div>
         </div>
         <!-- card lanches prontos -->
+        <% 
+            DaoLanches dl = new DaoLanches();
+            List<TbLanches> getList = dl.listar();
+        %>                       
         <div class="container cardLanche">
             <div class="row">
+                <%  
+                            for(TbLanches lanche : getList){  
+                %>   
                 <div class="card col-md-4" style="width:400px">
-                    <img class="card-img-top" src="Img/download.jpg" alt="Card image" style="width:100%">
+                    <img class="card-img-top" src="${lanche.getCaminhoimg() }" alt="Card image" style="width:100%">
                     <div class="card-body">
-                        <h4 class="card-title">John Doe</h4>
-                        <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                        <h4 class="card-title"><%= lanche.getNmLanche() %></h4>
+                        <p class="card-text"><%= lanche.getPreco() %></p>
                         <a href="#" class="btn btn-primary">See Profile</a>
                     </div>
                 </div>
-
-                <div class="card col-md-4" style="width:400px">
-                    <img class="card-img-top" src="Img/download.jpg" alt="Card image" style="width:100%">
-                    <div class="card-body">
-                      <h4 class="card-title">John Doe</h4>
-                      <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-                      <a href="#" class="btn btn-primary">See Profile</a>
-                    </div>
-                </div>
-                
-                <div class="card col-md-4" style="width:400px">
-                    <form action="pagViewLsnche.jsp" >
-                        <img class="card-img-top" src="${tes.caminho}" alt="Card image" style="width:100%">
-                        <div class="card-body">
-                          <h4 class="card-title" name="lanche" value="lanche">MC feliz</h4>
-                          <p class="card-text" value="descLanche" name="descLanche">Some example text some example text. John Doe is an architect and engineer</p>
-                          <input type="submit" class="btn btn-primary" value="ver"/>
-                        </div>
-                    </form>
-                </div>
-                
+                <%
+                            }
+                %>
             </div>
         </div>
         
