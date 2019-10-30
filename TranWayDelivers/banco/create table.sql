@@ -79,6 +79,12 @@ descr			varchar(255),
 caminhoImg		varchar(60),
 constraint pk_tb_pao_id_cond primary key (id_cond));
 
+drop table tb_lanche_criados
+
+select * from tb_pao
+
+select * from tb_lanche_criados
+
 create table tb_lanche_criados(
 id_lc_criado		integer,
 id_pao			integer,
@@ -87,10 +93,54 @@ id_hambuger		integer,
 id_salada		integer,
 id_queijo		integer,
 id_cond			integer,
-constraint pk_tb_lanche_criado_id_lc_cr primary key(id_lc_criado),
-constraint fk_tb_lanche_criado_id_pao foreign key(id_pao) references tb_pao(id_pao),
-constraint fk_tb_lanche_criado_id_molho foreign key(id_molho) references tb_molho(id_molho),
-constraint fk_tb_lanche_criado_id_ham foreign key(id_hambuger) references tb_hambuger(id_hambuger),
-constraint fk_tb_lanche_criado_id_sal foreign key(id_salada) references tb_salada(id_salada),
-constraint fk_tb_lanche_criado_id_pao foreign key(id_queijo) references tb_queijo(id_queijo),
-constraint fk_tb_lanche_criado_id_pao foreign key(id_cond) references tb_condimentos(id_cond));
+descr			varchar(100),
+constraint pk_tb_lanche_criados_id_lc_cr primary key(id_lc_criado),
+CONSTRAINT fk_tb_lanche_criados_id_pao FOREIGN KEY(id_pao) REFERENCES tb_pao(id_pao),
+CONSTRAINT fk_tb_lanche_criados_id_molho FOREIGN KEY(id_molho) REFERENCES tb_molho(id_molho),
+CONSTRAINT fk_tb_lanche_criados_id_hambuger FOREIGN KEY(id_hambuger) REFERENCES tb_hambuger(id_hambuger),
+CONSTRAINT fk_tb_lanche_criados_id_salada FOREIGN KEY(id_salada) REFERENCES tb_salada(id_salada),
+CONSTRAINT fk_tb_lanche_criados_id_queijo FOREIGN KEY(id_queijo) REFERENCES tb_queijo(id_queijo),
+CONSTRAINT fk_tb_lanche_criados_id_cond FOREIGN KEY(id_cond) REFERENCES tb_condimentos(id_cond));
+
+CREATE TABLE tb_endereco(
+id_end			integer,
+rua			varchar(60),
+numero			varchar(5),
+complemento		varchar(15),
+bairro			varchar(60),
+cidade			varchar(60),
+cep			integer,
+CONSTRAINT pk_tb_endereco_id_end PRIMARY KEY(id_end));
+
+CREATE TABLE tb_card_credit(
+id_cliente		integer,
+num_cred		integer,
+cod_seg			integer,
+venc_cart		varchar(20),
+CONSTRAINT pk_tb_card_credit_num_cred PRIMARY KEY(num_cred),
+CONSTRAINT fk_tb_card_credit_id_cliente FOREIGN KEY(id_cliente) REFERENCES tb_cliente(id_cliente));
+
+
+CREATE TABLE tb_cliente(
+id_cliente		integer,
+id_end			integer,
+nm_cliente		varchar(120),
+apelido			varchar(60),
+senha			Varchar(160),
+cpf			varchar(25),
+CONSTRAINT pk_tb_cliente_id_cliente PRIMARY KEY(id_cliente),
+CONSTRAINT fk_tb_cliente_id_end FOREIGN KEY(id_end) REFERENCES tb_endereco(id_end));
+
+CREATE TABLE tb_venda(
+id_venda		integer,
+id_cliente     		integer,
+id_lc_criado		integer,
+id_lanches		integer,
+data_venda		varchar(60),
+hora			varchar(60),
+qte_itens		integer,
+CONSTRAINT pk_tb_venda_id_venda PRIMARY KEY(id_venda),
+CONSTRAINT fk_tb_venda_id_cliente FOREIGN KEY(id_cliente) REFERENCES tb_cliente(id_cliente),
+CONSTRAINT fk_tb_venda_id_lc_criado FOREIGN KEY(id_lc_criado) REFERENCES tb_lanche_criados(id_lc_criado),
+CONSTRAINT fk_tb_venda_id_lanches FOREIGN KEY(id_lanches) REFERENCES tb_lanches(id_lanche));
+
