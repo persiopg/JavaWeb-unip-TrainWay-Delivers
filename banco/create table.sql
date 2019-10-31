@@ -120,6 +120,7 @@ venc_cart		varchar(20),
 CONSTRAINT pk_tb_card_credit_num_cred PRIMARY KEY(num_cred),
 CONSTRAINT fk_tb_card_credit_id_cliente FOREIGN KEY(id_cliente) REFERENCES tb_cliente(id_cliente));
 
+select * from tb_cliente
 
 CREATE TABLE tb_cliente(
 id_cliente		integer,

@@ -6,11 +6,13 @@
 package view;
 
 import entidade.TbCliente;
+import entidade.TbEndereco;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import model.TbClienteFacade;
+import model.TbEnderecoFacade;
 
 /**
  *
@@ -20,6 +22,29 @@ import model.TbClienteFacade;
 @ManagedBean
 @SessionScoped
 public class clienteManagedBean {
+
+    @EJB
+    private TbEnderecoFacade tbEnderecoFacade;
+    private TbEndereco endereco;
+
+    public TbEnderecoFacade getTbEnderecoFacade() {
+        return tbEnderecoFacade;
+    }
+
+    public void setTbEnderecoFacade(TbEnderecoFacade tbEnderecoFacade) {
+        this.tbEnderecoFacade = tbEnderecoFacade;
+    }
+
+    public TbEndereco getEndereco() {
+        if(endereco == null){
+            endereco = new TbEndereco();
+        }
+        return endereco;
+    }
+
+    public void setEndereco(TbEndereco endereco) {
+        this.endereco = endereco;
+    }
 
     @EJB
     private TbClienteFacade tbClienteFacade;
@@ -40,11 +65,27 @@ public class clienteManagedBean {
     }
 
     public TbCliente getCliente() {
+        if(cliente == null){
+            cliente = new TbCliente();
+        }
         return cliente;
     }
 
     public void setCliente(TbCliente cliente) {
         this.cliente = cliente;
+    }
+    
+    public String inserir(){
+        
+        this.tbEnderecoFacade.create(endereco);
+        cliente.setIdEnd(endereco);
+        this.tbClienteFacade.edit(cliente);
+        return "/";
+    }
+    
+    public String buscar(){
+       TbCliente t =  this.tbClienteFacade.find(cliente);
+       return t.getApelido();
     }
     
 }

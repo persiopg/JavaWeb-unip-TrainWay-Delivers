@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <head jsf:id="head">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>TrainWay Delivers</title>
+        <link href="./css/estilo.css" rel="stylesheet"></link>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+    </head>
+    <body jsf:id="body">
+        <nav class="navbar sticky-top navbar-expand-md navbar-dark navbar-transparente">
+            <!-- Brand -->
+            <a class="navbar-brand text-dark" href="index.xhtml">Logo</a>
+
+            <!-- Button -->
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#demo">                
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="demo">
+                <ul class="navbar-nav ">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">Monte o seu!</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">Carrinho</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="cadastro.xhtml">Cadastre-se</a>
+                    </li>
+                    <li class="nav-item nav-right">
+                        <a class="nav-link text-dark" href="#">Logar</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>    
+        <!-- espaco entre menu e o conteudo-->
+        <div class="container">
+            <div class="espaco row ">
+                <h1 class="col-md-12">TranWay Delivers</h1>
+            </div>
+        </div>
+        
+        <!--form cadastro -->
+        <div class="container">
+            <div class="row">
+                <div class="card col-md-4" style="width:400px">
+                    
+                    <img class="card-img-top" src="download.jpg" alt="Card image" style="width:100%"/>
+                    <div class="card-body">
+                        <h4 class="card-title">John Doe</h4>
+                        <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                        <a href="#" class="btn btn-primary">See Profile</a>
+                    </div>                
+                </div>
+            <div class="col-md-4">
+                <form action="index.jsp" method="post">
+                    <div class="form-group">
+                        <label for="email">Nome </label>
+                        <input type="text" class="form-control" id="email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Apelido: </label>
+                        <input type="text" class="form-control" id="email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Senha: </label>
+                        <input type="password" class="form-control" id="pwd"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Cpf </label>
+                        <input type="text" class="form-control" id="email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Rua </label>
+                        <input type="text" class="form-control" id="email"/>
+                        <label for="email">Numero </label>
+                        <input type="text" class="form-control" id="email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Complemento </label>
+                        <input type="text" class="form-control" id="email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Bairro </label>
+                        <input type="text" class="form-control" id="email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Cidade </label>
+                        <input type="text" class="form-control" id="email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Cep </label>
+                        <input type="text" class="form-control" id="email"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Logar</button>
+                </form>
+            </div>
+                <div class="card col-md-4" style="width:400px">
+                    <img class="card-img-top" src="download.jpg" alt="Card image" style="width:100%"/>
+                    <div class="card-body">
+                        <h4 class="card-title">John Doe</h4>
+                        <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                        <a href="#" class="btn btn-primary">See Profile</a>
+                    </div>                
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </body>
+    
+</html>
+

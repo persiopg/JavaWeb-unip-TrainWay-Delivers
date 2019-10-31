@@ -53,6 +53,11 @@ public class LancheManagedBean {
     public List<TbLanches> listar(){
         return this.tbLanchesFacade.findAll();
     }
+    public TbLanches buscar(){
+        int id = (int) (Math.random()*3);
+        lanche.setIdLanche(id);
+        return this.tbLanchesFacade.find(lanche);
+    }
 
     /**
      * Creates a new instance of LancheManagedBean

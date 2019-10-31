@@ -26,6 +26,7 @@ nav.navbar-transparente {
     margin: 5px;
     padding: 5px;
     background: rgba(255, 204, 153, 0.5);
+    align-content: center;
 }
 
 .espaco {
