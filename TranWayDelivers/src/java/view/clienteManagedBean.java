@@ -75,11 +75,10 @@ public class clienteManagedBean {
         this.cliente = cliente;
     }
     
-    public String inserir(){
-        
+    public String inserir(){        
         this.tbEnderecoFacade.create(endereco);
         cliente.setIdEnd(endereco);
-        this.tbClienteFacade.edit(cliente);
+        this.tbClienteFacade.create(cliente);
         return "/";
     }
     
