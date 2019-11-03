@@ -7,6 +7,7 @@ package view;
 
 import entidade.TbCliente;
 import entidade.TbEndereco;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.bean.ManagedBean;
@@ -21,7 +22,7 @@ import model.TbEnderecoFacade;
 @Named(value = "clienteManagedBean")
 @ManagedBean
 @SessionScoped
-public class clienteManagedBean {
+public class ClienteManagedBean {
 
     @EJB
     private TbEnderecoFacade tbEnderecoFacade;
@@ -53,7 +54,7 @@ public class clienteManagedBean {
     /**
      * Creates a new instance of clienteManagedBean
      */
-    public clienteManagedBean() {
+    public ClienteManagedBean() {
     }
 
     public TbClienteFacade getTbClienteFacade() {
@@ -82,9 +83,18 @@ public class clienteManagedBean {
         return "/";
     }
     
-    public String buscar(){
-       TbCliente t =  this.tbClienteFacade.find(cliente);
-       return t.getApelido();
+    public List<TbCliente> listar(){
+        return this.tbClienteFacade.findAll();
+    }   
+    
+    public TbCliente buscar(){
+        for(TbCliente l : this.listar()){
+            if(l.getIdCliente()== cliente.getIdCliente()){
+                cliente=l;
+                return cliente;
+            }
+        }
+        return null;
     }
     
 }

@@ -19,43 +19,37 @@
         <ui:insert name="menu">
             <ui:include src="WEB-INF/templat/menu.xhtml"/>
         </ui:insert>
-           
-        <!-- espaco entre menu e o conteudo-->
-        <div class="container">
-            <div class="espaco row ">
-                <h1 class="col-md-12">TranWay Delivers</h1>
-            </div>
-        </div>
+         
         <!-- form login -->
         <div class="container">
             <div class="row">
                 <div class="card col-md-4" style="width:400px">
-                    <img class="card-img-top" src="download.jpg" alt="Card image" style="width:100%"/>
+                    <img class="card-img-top" src="#{lancheManagedBean.randomLanche().caminhoimg}" alt="Card image" style="height: 350px;width:350px;"/>
                     <div class="card-body">
-                        <h4 class="card-title">John Doe</h4>
-                        <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-                        <a href="#" class="btn btn-primary">See Profile</a>
+                        <h4 class="card-title">#{lancheManagedBean.lanche.nmLanche}</h4>
+                        <p class="card-text">#{lancheManagedBean.lanche.descr}</p>
+                        <a href="mostrarMais.xhtml?parametro=#{lancheManagedBean.lanche.idLanche}" class="btn btn-primary" id="#{lancheManagedBean.lanche.idLanche}">See Profile</a>                            
                     </div>                
                 </div>
-            <div class="col-md-4">
-                <form action="index.jsp" method="post">
-                    <div class="form-group">
-                        <label for="email">Email: </label>
-                        <input type="email" class="form-control" id="email"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Senha: </label>
-                        <input type="password" class="form-control" id="pwd"/>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Logar</button>
-                </form>
+                <div class="col-md-4">
+                    <form action="index.jsp" method="post">
+                        <div class="form-group">
+                            <label for="email">Email: </label>
+                            <input type="email" class="form-control" id="email"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Senha: </label>
+                            <input type="password" class="form-control" id="pwd"/>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Logar</button>
+                    </form>
                 </div>
                 <div class="card col-md-4" style="width:400px">
-                    <img class="card-img-top" src="download.jpg" alt="Card image" style="width:100%"/>
+                    <img class="card-img-top" src="#{lancheManagedBean.randomLanche().caminhoimg}" alt="Card image" style="height: 350px;width:350px;"/>
                     <div class="card-body">
-                        <h4 class="card-title">John Doe</h4>
-                        <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-                        <a href="#" class="btn btn-primary">See Profile</a>
+                        <h4 class="card-title">#{lancheManagedBean.lanche.nmLanche}</h4>
+                        <p class="card-text">#{lancheManagedBean.lanche.descr}</p>
+                        <a href="mostrarMais.xhtml?parametro=#{lancheManagedBean.lanche.idLanche}" class="btn btn-primary" id="#{lancheManagedBean.lanche.idLanche}">See Profile</a>                            
                     </div>                
                 </div>
             </div>

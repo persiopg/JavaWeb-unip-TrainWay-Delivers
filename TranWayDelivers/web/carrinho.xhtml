@@ -3,28 +3,46 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:jsf="http://xmlns.jcp.org/jsf">
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <head jsf:id="head">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <title>TrainWay Delivers</title>
+        <title>#{lancheManagedBean.lanche.nmLanche}</title>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper/.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"> </script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
         <link href="./css/estilo.css" rel="stylesheet"></link>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     </head>
-    <body jsf:id="body">
-        
+    <body jsf:id="body">       
         <!-- menu -->
         <ui:insert name="menu">
             <ui:include src="WEB-INF/templat/menu.xhtml"/>
-        </ui:insert>           
-        <!-- espaco entre menu e o conteudo-->
-        <div class="container">
-            <div class="espaco row ">
-                <h1 class="col-md-12">TranWay Delivers</h1>
-            </div>
-        </div>
+        </ui:insert> 
+        
+        <f:metadata>
+            <f:viewParam name="parametro"  value="#{lancheManagedBean.lanche.idLanche}"/>            
+        </f:metadata>
+       <div class="container">
+           <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Lanche</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ui:repeat var="item" value="#{lancheManagedBean.lancheVendList}"> 
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>john@example.com</td>
+                        </tr>                
+                    </ui:repeat>
+              </tbody>
+            </table>
+          </div>
     </body>
 </html>
 

@@ -6,7 +6,9 @@
 package view;
 
 import entidade.TbLanches;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.bean.ManagedBean;
@@ -25,8 +27,13 @@ public class LancheManagedBean {
     @EJB
     private TbLanchesFacade tbLanchesFacade;
     private TbLanches lanche; 
+    private List<TbLanches> LancheVendList;
     
-    
+    public TbLanches randomLanche(){
+        int random  = new Random().nextInt(5);
+        lanche = listar().get(random);
+        return lanche;
+    }
     
     public TbLanchesFacade getTbLanchesFacade() {
         return tbLanchesFacade;
@@ -55,6 +62,23 @@ public class LancheManagedBean {
     public List<TbLanches> listar(){
         return this.tbLanchesFacade.findAll();
     }    
+
+    public List<TbLanches> getLancheVendList() {
+        return LancheVendList;
+    }
+
+    public void setLancheVendList(List<TbLanches> LancheVendList) {
+        this.LancheVendList = LancheVendList;
+    }
+    
+    
+    
+    public String AddLanche(){       
+                
+        LancheVendList.add(lanche);
+        
+        return "/carrinho.xhtml";
+    }
     
     public TbLanches buscar(){
         for(TbLanches l : this.listar()){

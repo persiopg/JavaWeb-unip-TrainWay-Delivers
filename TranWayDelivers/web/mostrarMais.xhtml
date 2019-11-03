@@ -19,19 +19,31 @@
         <ui:insert name="menu">
             <ui:include src="WEB-INF/templat/menu.xhtml"/>
         </ui:insert>
-        <f:metadata>"
-            <f:viewParam name="parametro"  value="#{lancheManagedBean.lanche.idLanche}"/>
-            #{lancheManagedBean.buscar()}
+        <f:metadata>
+            <f:viewParam name="parametro"  value="#{lancheManagedBean.lanche.idLanche}"/>            
         </f:metadata>
-        <c:if test="${lancheManagedBean.lanche.idLanche != null}">
-            <h2>#{lancheManagedBean.lanche.nmLanche}</h2>
-            <img src="#{lancheManagedBean.lanche.caminhoimg}" style="height: 350px;width:350px;"/>
-            <h2>#{lancheManagedBean.lanche.descr}</h2>
-            <h2>#{lancheManagedBean.lanche.preco}</h2>
-            <h2>#{lancheManagedBean.lanche.tempomont}</h2>
-        </c:if>
-        
-        
+         <div class="container">
+            <div class="row">
+                <c:if test="${lancheManagedBean.lanche.idLanche != null}">
+                    <div class="card col-md-8">
+                        <img src="#{lancheManagedBean.buscar().caminhoimg}" style="height: 500px;width:100%;"/>
+                    </div>
+                    <div class="card col-md-4" >                        
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">#{lancheManagedBean.lanche.nmLanche}</h4>
+                                <p class="card-text">#{lancheManagedBean.lanche.descr}</p>
+                                <br/>
+                                <p class="card-text">#{lancheManagedBean.lanche.tempomont}</p>
+                            </div>
+                            <div class="card-footer">
+                                <h:commandButton class="btn btn-primary" action="#{lancheManagedBean.addLanche()}" value="test add lanche" />
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
+            </div>
+         </div>        
     </body>
 </html>
 
