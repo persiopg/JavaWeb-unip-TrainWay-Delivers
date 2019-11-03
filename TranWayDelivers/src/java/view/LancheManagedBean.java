@@ -25,7 +25,9 @@ public class LancheManagedBean {
     @EJB
     private TbLanchesFacade tbLanchesFacade;
     private TbLanches lanche; 
-
+    
+    
+    
     public TbLanchesFacade getTbLanchesFacade() {
         return tbLanchesFacade;
     }
@@ -52,13 +54,19 @@ public class LancheManagedBean {
     
     public List<TbLanches> listar(){
         return this.tbLanchesFacade.findAll();
-    }
+    }    
+    
     public TbLanches buscar(){
-        int id = (int) (Math.random()*3);
-        lanche.setIdLanche(id);
-        return this.tbLanchesFacade.find(lanche);
+        for(TbLanches l : this.listar()){
+            if(l.getIdLanche() == lanche.getIdLanche()){
+                lanche=l;
+                return lanche;
+            }
+        }
+        return null;
     }
-
+    
+   
     /**
      * Creates a new instance of LancheManagedBean
      */

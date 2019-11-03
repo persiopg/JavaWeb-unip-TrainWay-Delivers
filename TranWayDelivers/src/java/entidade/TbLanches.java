@@ -59,6 +59,7 @@ public class TbLanches implements Serializable {
     private String caminhoimg;
     @OneToMany(mappedBy = "idLanches")
     private Collection<TbVenda> tbVendaCollection;
+    
 
     public TbLanches() {
     }
