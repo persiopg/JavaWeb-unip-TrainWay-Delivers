@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entidade;
+package entidades;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -59,7 +59,6 @@ public class TbLanches implements Serializable {
     private String caminhoimg;
     @OneToMany(mappedBy = "idLanches")
     private Collection<TbVenda> tbVendaCollection;
-    
 
     public TbLanches() {
     }
@@ -147,7 +146,7 @@ public class TbLanches implements Serializable {
 
     @Override
     public String toString() {
-        return "entidade.TbLanches[ idLanche=" + idLanche + " ]";
+        return "entidades.TbLanches[ idLanche=" + idLanche + " ]";
     }
     
 }

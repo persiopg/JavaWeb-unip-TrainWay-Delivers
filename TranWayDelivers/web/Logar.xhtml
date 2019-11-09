@@ -32,17 +32,17 @@
                     </div>                
                 </div>
                 <div class="col-md-4">
-                    <form action="index.jsp" method="post">
+                    <h:form>
                         <div class="form-group">
-                            <label for="email">Email: </label>
-                            <input type="email" class="form-control" id="email"/>
+                            <h:outputLabel value="NmCliente:" for="nmCliente" />
+                            <h:inputText id="nmCliente" class="form-control" value="#{clienteManagedBean.cliente.nmCliente}" title="NmCliente" />
                         </div>
                         <div class="form-group">
-                            <label for="pwd">Senha: </label>
-                            <input type="password" class="form-control" id="pwd"/>
+                            <h:outputLabel value="Senha:" for="senha" />
+                            <h:inputText id="senha" class="form-control" value="#{clienteManagedBean.cliente.senha}" title="Senha" />
                         </div>
-                        <button type="submit" class="btn btn-primary">Logar</button>
-                    </form>
+                        <h:commandButton id="Logar" class="btn btn-primary" value="Logar" action="#{clienteManagedBean.checkLogin()}"/>
+                    </h:form>
                 </div>
                 <div class="card col-md-4" style="width:400px">
                     <img class="card-img-top" src="#{lancheManagedBean.randomLanche().caminhoimg}" alt="Card image" style="height: 350px;width:350px;"/>
@@ -54,10 +54,6 @@
                 </div>
             </div>
         </div>
-        <script jsf:id="outputScript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script jsf:id="outputScript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper/.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"> </script>
-        <script jsf:id="outputScript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
-
     </body>
 </html>
 

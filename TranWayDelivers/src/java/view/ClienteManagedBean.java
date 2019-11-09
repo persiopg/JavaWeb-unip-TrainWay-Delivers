@@ -1,19 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package view;
 
-import entidade.TbCliente;
-import entidade.TbEndereco;
+import entidades.TbCliente;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import model.TbClienteFacade;
-import model.TbEnderecoFacade;
 
 /**
  *
@@ -24,28 +18,6 @@ import model.TbEnderecoFacade;
 @SessionScoped
 public class ClienteManagedBean {
 
-    @EJB
-    private TbEnderecoFacade tbEnderecoFacade;
-    private TbEndereco endereco;
-
-    public TbEnderecoFacade getTbEnderecoFacade() {
-        return tbEnderecoFacade;
-    }
-
-    public void setTbEnderecoFacade(TbEnderecoFacade tbEnderecoFacade) {
-        this.tbEnderecoFacade = tbEnderecoFacade;
-    }
-
-    public TbEndereco getEndereco() {
-        if(endereco == null){
-            endereco = new TbEndereco();
-        }
-        return endereco;
-    }
-
-    public void setEndereco(TbEndereco endereco) {
-        this.endereco = endereco;
-    }
 
     @EJB
     private TbClienteFacade tbClienteFacade;
@@ -76,11 +48,24 @@ public class ClienteManagedBean {
         this.cliente = cliente;
     }
     
-    public String inserir(){        
-        this.tbEnderecoFacade.create(endereco);
-        cliente.setIdEnd(endereco);
-        this.tbClienteFacade.create(cliente);
-        return "/";
+    public String inserirCliente(){       
+        if(cliente != null){
+            //this.tbClienteFacade.create(cliente);
+            System.out.println("entrou");
+            return "logar.xhtml";
+        }
+        System.out.println("nao entrou");
+        return null;
+    }
+    
+    public String checkLogin(){
+        for(TbCliente c : this.listar()){
+            if((c.getNmCliente().equals(cliente.getNmCliente())) && (c.getSenha().equals(cliente.getSenha()))){
+               cliente = c;
+               return "index.xhtml?faces-redirect=true";               
+            }
+        }
+        return "";  
     }
     
     public List<TbCliente> listar(){

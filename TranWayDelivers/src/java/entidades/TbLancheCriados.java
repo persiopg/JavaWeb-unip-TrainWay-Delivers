@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entidade;
+package entidades;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -167,7 +167,7 @@ public class TbLancheCriados implements Serializable {
 
     @Override
     public String toString() {
-        return "entidade.TbLancheCriados[ idLcCriado=" + idLcCriado + " ]";
+        return "entidades.TbLancheCriados[ idLcCriado=" + idLcCriado + " ]";
     }
     
 }

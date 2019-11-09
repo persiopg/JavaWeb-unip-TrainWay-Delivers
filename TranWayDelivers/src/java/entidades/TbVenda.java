@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entidade;
+package entidades;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -29,6 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "TbVenda.findAll", query = "SELECT t FROM TbVenda t")
     , @NamedQuery(name = "TbVenda.findByIdVenda", query = "SELECT t FROM TbVenda t WHERE t.idVenda = :idVenda")
+    , @NamedQuery(name = "TbVenda.findByIdCliente", query = "SELECT t FROM TbVenda t WHERE t.idCliente = :idCliente")
     , @NamedQuery(name = "TbVenda.findByDataVenda", query = "SELECT t FROM TbVenda t WHERE t.dataVenda = :dataVenda")
     , @NamedQuery(name = "TbVenda.findByHora", query = "SELECT t FROM TbVenda t WHERE t.hora = :hora")
     , @NamedQuery(name = "TbVenda.findByQteItens", query = "SELECT t FROM TbVenda t WHERE t.qteItens = :qteItens")})
@@ -40,6 +41,8 @@ public class TbVenda implements Serializable {
     @NotNull
     @Column(name = "id_venda")
     private Integer idVenda;
+    @Column(name = "id_cliente")
+    private Integer idCliente;
     @Size(max = 60)
     @Column(name = "data_venda")
     private String dataVenda;
@@ -48,9 +51,6 @@ public class TbVenda implements Serializable {
     private String hora;
     @Column(name = "qte_itens")
     private Integer qteItens;
-    @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
-    @ManyToOne
-    private TbCliente idCliente;
     @JoinColumn(name = "id_lc_criado", referencedColumnName = "id_lc_criado")
     @ManyToOne
     private TbLancheCriados idLcCriado;
@@ -71,6 +71,14 @@ public class TbVenda implements Serializable {
 
     public void setIdVenda(Integer idVenda) {
         this.idVenda = idVenda;
+    }
+
+    public Integer getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente = idCliente;
     }
 
     public String getDataVenda() {
@@ -95,14 +103,6 @@ public class TbVenda implements Serializable {
 
     public void setQteItens(Integer qteItens) {
         this.qteItens = qteItens;
-    }
-
-    public TbCliente getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(TbCliente idCliente) {
-        this.idCliente = idCliente;
     }
 
     public TbLancheCriados getIdLcCriado() {
@@ -143,7 +143,7 @@ public class TbVenda implements Serializable {
 
     @Override
     public String toString() {
-        return "entidade.TbVenda[ idVenda=" + idVenda + " ]";
+        return "entidades.TbVenda[ idVenda=" + idVenda + " ]";
     }
     
 }

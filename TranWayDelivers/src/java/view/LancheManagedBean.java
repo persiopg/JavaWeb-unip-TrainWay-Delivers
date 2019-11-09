@@ -5,7 +5,7 @@
  */
 package view;
 
-import entidade.TbLanches;
+import entidades.TbLanches;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -60,7 +60,7 @@ public class LancheManagedBean {
     }
     
     public List<TbLanches> listar(){
-        return this.tbLanchesFacade.findAll();
+        return tbLanchesFacade.findAll();
     }    
 
     public List<TbLanches> getLancheVendList() {
@@ -73,11 +73,11 @@ public class LancheManagedBean {
     
     
     
-    public String AddLanche(){       
-                
-        LancheVendList.add(lanche);
-        
-        return "/carrinho.xhtml";
+    public String AddLanche(){      
+        if(lanche != null){
+        return "index.xhtml?faces-redirect=true";
+        }
+        return "";
     }
     
     public TbLanches buscar(){

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entidade;
+package entidades;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -25,29 +25,29 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author user
  */
 @Entity
-@Table(name = "tb_salada")
+@Table(name = "tb_hambuger")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "TbSalada.findAll", query = "SELECT t FROM TbSalada t")
-    , @NamedQuery(name = "TbSalada.findByIdSalada", query = "SELECT t FROM TbSalada t WHERE t.idSalada = :idSalada")
-    , @NamedQuery(name = "TbSalada.findByQte", query = "SELECT t FROM TbSalada t WHERE t.qte = :qte")
-    , @NamedQuery(name = "TbSalada.findByNmSalada", query = "SELECT t FROM TbSalada t WHERE t.nmSalada = :nmSalada")
-    , @NamedQuery(name = "TbSalada.findByPreco", query = "SELECT t FROM TbSalada t WHERE t.preco = :preco")
-    , @NamedQuery(name = "TbSalada.findByDescr", query = "SELECT t FROM TbSalada t WHERE t.descr = :descr")
-    , @NamedQuery(name = "TbSalada.findByCaminhoimg", query = "SELECT t FROM TbSalada t WHERE t.caminhoimg = :caminhoimg")})
-public class TbSalada implements Serializable {
+    @NamedQuery(name = "TbHambuger.findAll", query = "SELECT t FROM TbHambuger t")
+    , @NamedQuery(name = "TbHambuger.findByIdHambuger", query = "SELECT t FROM TbHambuger t WHERE t.idHambuger = :idHambuger")
+    , @NamedQuery(name = "TbHambuger.findByQte", query = "SELECT t FROM TbHambuger t WHERE t.qte = :qte")
+    , @NamedQuery(name = "TbHambuger.findByNmHambuger", query = "SELECT t FROM TbHambuger t WHERE t.nmHambuger = :nmHambuger")
+    , @NamedQuery(name = "TbHambuger.findByPreco", query = "SELECT t FROM TbHambuger t WHERE t.preco = :preco")
+    , @NamedQuery(name = "TbHambuger.findByDescr", query = "SELECT t FROM TbHambuger t WHERE t.descr = :descr")
+    , @NamedQuery(name = "TbHambuger.findByCaminhoimg", query = "SELECT t FROM TbHambuger t WHERE t.caminhoimg = :caminhoimg")})
+public class TbHambuger implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "id_salada")
-    private Integer idSalada;
+    @Column(name = "id_hambuger")
+    private Integer idHambuger;
     @Column(name = "qte")
     private Integer qte;
     @Size(max = 60)
-    @Column(name = "nm_salada")
-    private String nmSalada;
+    @Column(name = "nm_hambuger")
+    private String nmHambuger;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "preco")
     private Double preco;
@@ -57,22 +57,22 @@ public class TbSalada implements Serializable {
     @Size(max = 60)
     @Column(name = "caminhoimg")
     private String caminhoimg;
-    @OneToMany(mappedBy = "idSalada")
+    @OneToMany(mappedBy = "idHambuger")
     private Collection<TbLancheCriados> tbLancheCriadosCollection;
 
-    public TbSalada() {
+    public TbHambuger() {
     }
 
-    public TbSalada(Integer idSalada) {
-        this.idSalada = idSalada;
+    public TbHambuger(Integer idHambuger) {
+        this.idHambuger = idHambuger;
     }
 
-    public Integer getIdSalada() {
-        return idSalada;
+    public Integer getIdHambuger() {
+        return idHambuger;
     }
 
-    public void setIdSalada(Integer idSalada) {
-        this.idSalada = idSalada;
+    public void setIdHambuger(Integer idHambuger) {
+        this.idHambuger = idHambuger;
     }
 
     public Integer getQte() {
@@ -83,12 +83,12 @@ public class TbSalada implements Serializable {
         this.qte = qte;
     }
 
-    public String getNmSalada() {
-        return nmSalada;
+    public String getNmHambuger() {
+        return nmHambuger;
     }
 
-    public void setNmSalada(String nmSalada) {
-        this.nmSalada = nmSalada;
+    public void setNmHambuger(String nmHambuger) {
+        this.nmHambuger = nmHambuger;
     }
 
     public Double getPreco() {
@@ -127,18 +127,18 @@ public class TbSalada implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idSalada != null ? idSalada.hashCode() : 0);
+        hash += (idHambuger != null ? idHambuger.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof TbSalada)) {
+        if (!(object instanceof TbHambuger)) {
             return false;
         }
-        TbSalada other = (TbSalada) object;
-        if ((this.idSalada == null && other.idSalada != null) || (this.idSalada != null && !this.idSalada.equals(other.idSalada))) {
+        TbHambuger other = (TbHambuger) object;
+        if ((this.idHambuger == null && other.idHambuger != null) || (this.idHambuger != null && !this.idHambuger.equals(other.idHambuger))) {
             return false;
         }
         return true;
@@ -146,7 +146,7 @@ public class TbSalada implements Serializable {
 
     @Override
     public String toString() {
-        return "entidade.TbSalada[ idSalada=" + idSalada + " ]";
+        return "entidades.TbHambuger[ idHambuger=" + idHambuger + " ]";
     }
     
 }

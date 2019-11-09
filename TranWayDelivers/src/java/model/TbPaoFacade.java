@@ -5,7 +5,7 @@
  */
 package model;
 
-import entidade.TbPao;
+import entidades.TbPao;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

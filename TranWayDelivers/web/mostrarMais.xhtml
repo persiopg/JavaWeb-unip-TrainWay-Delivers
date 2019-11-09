@@ -25,22 +25,26 @@
          <div class="container">
             <div class="row">
                 <c:if test="${lancheManagedBean.lanche.idLanche != null}">
-                    <div class="card col-md-8">
-                        <img src="#{lancheManagedBean.buscar().caminhoimg}" style="height: 500px;width:100%;"/>
-                    </div>
-                    <div class="card col-md-4" >                        
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">#{lancheManagedBean.lanche.nmLanche}</h4>
-                                <p class="card-text">#{lancheManagedBean.lanche.descr}</p>
-                                <br/>
-                                <p class="card-text">#{lancheManagedBean.lanche.tempomont}</p>
-                            </div>
-                            <div class="card-footer">
-                                <h:commandButton class="btn btn-primary" action="#{lancheManagedBean.addLanche()}" value="test add lanche" />
+                    
+                        <div class="card col-md-8">
+                            <img src="#{lancheManagedBean.buscar().caminhoimg}" style="height: 500px;width:100%;"/>
+                        </div>
+                        <div class="card col-md-4" >                        
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">#{lancheManagedBean.lanche.nmLanche}</h4>
+                                    <p class="card-text">#{lancheManagedBean.lanche.descr}</p>
+                                    <br/>
+                                    <p class="card-text">#{lancheManagedBean.lanche.tempomont}</p>
+                                </div>
+                                <div class="card-footer">
+                                    <h:form>
+                                        <h:commandButton id="Adicionar" class="btn btn-primary" value="adicionar" action="#{lancheManagedBean.addLanche()}"/>
+                                        </h:form>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    
                 </c:if>
             </div>
          </div>        

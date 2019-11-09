@@ -5,8 +5,8 @@
  */
 package view;
 
-import entidade.TbLanches;
-import entidade.TbVenda;
+import entidades.TbLanches;
+import entidades.TbVenda;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Named;

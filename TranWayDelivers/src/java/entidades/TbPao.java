@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entidade;
+package entidades;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -25,29 +25,29 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author user
  */
 @Entity
-@Table(name = "tb_hambuger")
+@Table(name = "tb_pao")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "TbHambuger.findAll", query = "SELECT t FROM TbHambuger t")
-    , @NamedQuery(name = "TbHambuger.findByIdHambuger", query = "SELECT t FROM TbHambuger t WHERE t.idHambuger = :idHambuger")
-    , @NamedQuery(name = "TbHambuger.findByQte", query = "SELECT t FROM TbHambuger t WHERE t.qte = :qte")
-    , @NamedQuery(name = "TbHambuger.findByNmHambuger", query = "SELECT t FROM TbHambuger t WHERE t.nmHambuger = :nmHambuger")
-    , @NamedQuery(name = "TbHambuger.findByPreco", query = "SELECT t FROM TbHambuger t WHERE t.preco = :preco")
-    , @NamedQuery(name = "TbHambuger.findByDescr", query = "SELECT t FROM TbHambuger t WHERE t.descr = :descr")
-    , @NamedQuery(name = "TbHambuger.findByCaminhoimg", query = "SELECT t FROM TbHambuger t WHERE t.caminhoimg = :caminhoimg")})
-public class TbHambuger implements Serializable {
+    @NamedQuery(name = "TbPao.findAll", query = "SELECT t FROM TbPao t")
+    , @NamedQuery(name = "TbPao.findByIdPao", query = "SELECT t FROM TbPao t WHERE t.idPao = :idPao")
+    , @NamedQuery(name = "TbPao.findByQte", query = "SELECT t FROM TbPao t WHERE t.qte = :qte")
+    , @NamedQuery(name = "TbPao.findByNmPao", query = "SELECT t FROM TbPao t WHERE t.nmPao = :nmPao")
+    , @NamedQuery(name = "TbPao.findByPreco", query = "SELECT t FROM TbPao t WHERE t.preco = :preco")
+    , @NamedQuery(name = "TbPao.findByDescr", query = "SELECT t FROM TbPao t WHERE t.descr = :descr")
+    , @NamedQuery(name = "TbPao.findByCaminhoimg", query = "SELECT t FROM TbPao t WHERE t.caminhoimg = :caminhoimg")})
+public class TbPao implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "id_hambuger")
-    private Integer idHambuger;
+    @Column(name = "id_pao")
+    private Integer idPao;
     @Column(name = "qte")
     private Integer qte;
     @Size(max = 60)
-    @Column(name = "nm_hambuger")
-    private String nmHambuger;
+    @Column(name = "nm_pao")
+    private String nmPao;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "preco")
     private Double preco;
@@ -57,22 +57,22 @@ public class TbHambuger implements Serializable {
     @Size(max = 60)
     @Column(name = "caminhoimg")
     private String caminhoimg;
-    @OneToMany(mappedBy = "idHambuger")
+    @OneToMany(mappedBy = "idPao")
     private Collection<TbLancheCriados> tbLancheCriadosCollection;
 
-    public TbHambuger() {
+    public TbPao() {
     }
 
-    public TbHambuger(Integer idHambuger) {
-        this.idHambuger = idHambuger;
+    public TbPao(Integer idPao) {
+        this.idPao = idPao;
     }
 
-    public Integer getIdHambuger() {
-        return idHambuger;
+    public Integer getIdPao() {
+        return idPao;
     }
 
-    public void setIdHambuger(Integer idHambuger) {
-        this.idHambuger = idHambuger;
+    public void setIdPao(Integer idPao) {
+        this.idPao = idPao;
     }
 
     public Integer getQte() {
@@ -83,12 +83,12 @@ public class TbHambuger implements Serializable {
         this.qte = qte;
     }
 
-    public String getNmHambuger() {
-        return nmHambuger;
+    public String getNmPao() {
+        return nmPao;
     }
 
-    public void setNmHambuger(String nmHambuger) {
-        this.nmHambuger = nmHambuger;
+    public void setNmPao(String nmPao) {
+        this.nmPao = nmPao;
     }
 
     public Double getPreco() {
@@ -127,18 +127,18 @@ public class TbHambuger implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idHambuger != null ? idHambuger.hashCode() : 0);
+        hash += (idPao != null ? idPao.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof TbHambuger)) {
+        if (!(object instanceof TbPao)) {
             return false;
         }
-        TbHambuger other = (TbHambuger) object;
-        if ((this.idHambuger == null && other.idHambuger != null) || (this.idHambuger != null && !this.idHambuger.equals(other.idHambuger))) {
+        TbPao other = (TbPao) object;
+        if ((this.idPao == null && other.idPao != null) || (this.idPao != null && !this.idPao.equals(other.idPao))) {
             return false;
         }
         return true;
@@ -146,7 +146,7 @@ public class TbHambuger implements Serializable {
 
     @Override
     public String toString() {
-        return "entidade.TbHambuger[ idHambuger=" + idHambuger + " ]";
+        return "entidades.TbPao[ idPao=" + idPao + " ]";
     }
     
 }

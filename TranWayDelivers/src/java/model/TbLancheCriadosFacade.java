@@ -5,7 +5,7 @@
  */
 package model;
 
-import entidade.TbLancheCriados;
+import entidades.TbLancheCriados;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

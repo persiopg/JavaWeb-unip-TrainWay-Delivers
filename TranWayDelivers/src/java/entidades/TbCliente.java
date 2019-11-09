@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entidade;
+package entidades;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -11,8 +11,6 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -35,7 +33,13 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "TbCliente.findByNmCliente", query = "SELECT t FROM TbCliente t WHERE t.nmCliente = :nmCliente")
     , @NamedQuery(name = "TbCliente.findByApelido", query = "SELECT t FROM TbCliente t WHERE t.apelido = :apelido")
     , @NamedQuery(name = "TbCliente.findBySenha", query = "SELECT t FROM TbCliente t WHERE t.senha = :senha")
-    , @NamedQuery(name = "TbCliente.findByCpf", query = "SELECT t FROM TbCliente t WHERE t.cpf = :cpf")})
+    , @NamedQuery(name = "TbCliente.findByCpf", query = "SELECT t FROM TbCliente t WHERE t.cpf = :cpf")
+    , @NamedQuery(name = "TbCliente.findByRua", query = "SELECT t FROM TbCliente t WHERE t.rua = :rua")
+    , @NamedQuery(name = "TbCliente.findByNumero", query = "SELECT t FROM TbCliente t WHERE t.numero = :numero")
+    , @NamedQuery(name = "TbCliente.findByComplemento", query = "SELECT t FROM TbCliente t WHERE t.complemento = :complemento")
+    , @NamedQuery(name = "TbCliente.findByBairro", query = "SELECT t FROM TbCliente t WHERE t.bairro = :bairro")
+    , @NamedQuery(name = "TbCliente.findByCidade", query = "SELECT t FROM TbCliente t WHERE t.cidade = :cidade")
+    , @NamedQuery(name = "TbCliente.findByCep", query = "SELECT t FROM TbCliente t WHERE t.cep = :cep")})
 public class TbCliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -56,13 +60,25 @@ public class TbCliente implements Serializable {
     @Size(max = 25)
     @Column(name = "cpf")
     private String cpf;
+    @Size(max = 60)
+    @Column(name = "rua")
+    private String rua;
+    @Size(max = 5)
+    @Column(name = "numero")
+    private String numero;
+    @Size(max = 15)
+    @Column(name = "complemento")
+    private String complemento;
+    @Size(max = 60)
+    @Column(name = "bairro")
+    private String bairro;
+    @Size(max = 60)
+    @Column(name = "cidade")
+    private String cidade;
+    @Column(name = "cep")
+    private Integer cep;
     @OneToMany(mappedBy = "idCliente")
     private Collection<TbCardCredit> tbCardCreditCollection;
-    @JoinColumn(name = "id_end", referencedColumnName = "id_end")
-    @ManyToOne
-    private TbEndereco idEnd;
-    @OneToMany(mappedBy = "idCliente")
-    private Collection<TbVenda> tbVendaCollection;
 
     public TbCliente() {
     }
@@ -111,6 +127,54 @@ public class TbCliente implements Serializable {
         this.cpf = cpf;
     }
 
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public Integer getCep() {
+        return cep;
+    }
+
+    public void setCep(Integer cep) {
+        this.cep = cep;
+    }
+
     @XmlTransient
     public Collection<TbCardCredit> getTbCardCreditCollection() {
         return tbCardCreditCollection;
@@ -118,23 +182,6 @@ public class TbCliente implements Serializable {
 
     public void setTbCardCreditCollection(Collection<TbCardCredit> tbCardCreditCollection) {
         this.tbCardCreditCollection = tbCardCreditCollection;
-    }
-
-    public TbEndereco getIdEnd() {
-        return idEnd;
-    }
-
-    public void setIdEnd(TbEndereco idEnd) {
-        this.idEnd = idEnd;
-    }
-
-    @XmlTransient
-    public Collection<TbVenda> getTbVendaCollection() {
-        return tbVendaCollection;
-    }
-
-    public void setTbVendaCollection(Collection<TbVenda> tbVendaCollection) {
-        this.tbVendaCollection = tbVendaCollection;
     }
 
     @Override
@@ -159,7 +206,7 @@ public class TbCliente implements Serializable {
 
     @Override
     public String toString() {
-        return "entidade.TbCliente[ idCliente=" + idCliente + " ]";
+        return "entidades.TbCliente[ idCliente=" + idCliente + " ]";
     }
     
 }

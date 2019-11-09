@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entidade;
+package entidades;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -25,29 +25,29 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author user
  */
 @Entity
-@Table(name = "tb_pao")
+@Table(name = "tb_condimentos")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "TbPao.findAll", query = "SELECT t FROM TbPao t")
-    , @NamedQuery(name = "TbPao.findByIdPao", query = "SELECT t FROM TbPao t WHERE t.idPao = :idPao")
-    , @NamedQuery(name = "TbPao.findByQte", query = "SELECT t FROM TbPao t WHERE t.qte = :qte")
-    , @NamedQuery(name = "TbPao.findByNmPao", query = "SELECT t FROM TbPao t WHERE t.nmPao = :nmPao")
-    , @NamedQuery(name = "TbPao.findByPreco", query = "SELECT t FROM TbPao t WHERE t.preco = :preco")
-    , @NamedQuery(name = "TbPao.findByDescr", query = "SELECT t FROM TbPao t WHERE t.descr = :descr")
-    , @NamedQuery(name = "TbPao.findByCaminhoimg", query = "SELECT t FROM TbPao t WHERE t.caminhoimg = :caminhoimg")})
-public class TbPao implements Serializable {
+    @NamedQuery(name = "TbCondimentos.findAll", query = "SELECT t FROM TbCondimentos t")
+    , @NamedQuery(name = "TbCondimentos.findByIdCond", query = "SELECT t FROM TbCondimentos t WHERE t.idCond = :idCond")
+    , @NamedQuery(name = "TbCondimentos.findByQte", query = "SELECT t FROM TbCondimentos t WHERE t.qte = :qte")
+    , @NamedQuery(name = "TbCondimentos.findByNmCond", query = "SELECT t FROM TbCondimentos t WHERE t.nmCond = :nmCond")
+    , @NamedQuery(name = "TbCondimentos.findByPreco", query = "SELECT t FROM TbCondimentos t WHERE t.preco = :preco")
+    , @NamedQuery(name = "TbCondimentos.findByDescr", query = "SELECT t FROM TbCondimentos t WHERE t.descr = :descr")
+    , @NamedQuery(name = "TbCondimentos.findByCaminhoimg", query = "SELECT t FROM TbCondimentos t WHERE t.caminhoimg = :caminhoimg")})
+public class TbCondimentos implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "id_pao")
-    private Integer idPao;
+    @Column(name = "id_cond")
+    private Integer idCond;
     @Column(name = "qte")
     private Integer qte;
     @Size(max = 60)
-    @Column(name = "nm_pao")
-    private String nmPao;
+    @Column(name = "nm_cond")
+    private String nmCond;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "preco")
     private Double preco;
@@ -57,22 +57,22 @@ public class TbPao implements Serializable {
     @Size(max = 60)
     @Column(name = "caminhoimg")
     private String caminhoimg;
-    @OneToMany(mappedBy = "idPao")
+    @OneToMany(mappedBy = "idCond")
     private Collection<TbLancheCriados> tbLancheCriadosCollection;
 
-    public TbPao() {
+    public TbCondimentos() {
     }
 
-    public TbPao(Integer idPao) {
-        this.idPao = idPao;
+    public TbCondimentos(Integer idCond) {
+        this.idCond = idCond;
     }
 
-    public Integer getIdPao() {
-        return idPao;
+    public Integer getIdCond() {
+        return idCond;
     }
 
-    public void setIdPao(Integer idPao) {
-        this.idPao = idPao;
+    public void setIdCond(Integer idCond) {
+        this.idCond = idCond;
     }
 
     public Integer getQte() {
@@ -83,12 +83,12 @@ public class TbPao implements Serializable {
         this.qte = qte;
     }
 
-    public String getNmPao() {
-        return nmPao;
+    public String getNmCond() {
+        return nmCond;
     }
 
-    public void setNmPao(String nmPao) {
-        this.nmPao = nmPao;
+    public void setNmCond(String nmCond) {
+        this.nmCond = nmCond;
     }
 
     public Double getPreco() {
@@ -127,18 +127,18 @@ public class TbPao implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idPao != null ? idPao.hashCode() : 0);
+        hash += (idCond != null ? idCond.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof TbPao)) {
+        if (!(object instanceof TbCondimentos)) {
             return false;
         }
-        TbPao other = (TbPao) object;
-        if ((this.idPao == null && other.idPao != null) || (this.idPao != null && !this.idPao.equals(other.idPao))) {
+        TbCondimentos other = (TbCondimentos) object;
+        if ((this.idCond == null && other.idCond != null) || (this.idCond != null && !this.idCond.equals(other.idCond))) {
             return false;
         }
         return true;
@@ -146,7 +146,7 @@ public class TbPao implements Serializable {
 
     @Override
     public String toString() {
-        return "entidade.TbPao[ idPao=" + idPao + " ]";
+        return "entidades.TbCondimentos[ idCond=" + idCond + " ]";
     }
     
 }

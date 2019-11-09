@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entidade;
+package entidades;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -25,29 +25,29 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author user
  */
 @Entity
-@Table(name = "tb_molho")
+@Table(name = "tb_queijo")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "TbMolho.findAll", query = "SELECT t FROM TbMolho t")
-    , @NamedQuery(name = "TbMolho.findByIdMolho", query = "SELECT t FROM TbMolho t WHERE t.idMolho = :idMolho")
-    , @NamedQuery(name = "TbMolho.findByNmMolho", query = "SELECT t FROM TbMolho t WHERE t.nmMolho = :nmMolho")
-    , @NamedQuery(name = "TbMolho.findByQte", query = "SELECT t FROM TbMolho t WHERE t.qte = :qte")
-    , @NamedQuery(name = "TbMolho.findByPreco", query = "SELECT t FROM TbMolho t WHERE t.preco = :preco")
-    , @NamedQuery(name = "TbMolho.findByDescr", query = "SELECT t FROM TbMolho t WHERE t.descr = :descr")
-    , @NamedQuery(name = "TbMolho.findByCaminhoimg", query = "SELECT t FROM TbMolho t WHERE t.caminhoimg = :caminhoimg")})
-public class TbMolho implements Serializable {
+    @NamedQuery(name = "TbQueijo.findAll", query = "SELECT t FROM TbQueijo t")
+    , @NamedQuery(name = "TbQueijo.findByIdQueijo", query = "SELECT t FROM TbQueijo t WHERE t.idQueijo = :idQueijo")
+    , @NamedQuery(name = "TbQueijo.findByQte", query = "SELECT t FROM TbQueijo t WHERE t.qte = :qte")
+    , @NamedQuery(name = "TbQueijo.findByNmQueijo", query = "SELECT t FROM TbQueijo t WHERE t.nmQueijo = :nmQueijo")
+    , @NamedQuery(name = "TbQueijo.findByPreco", query = "SELECT t FROM TbQueijo t WHERE t.preco = :preco")
+    , @NamedQuery(name = "TbQueijo.findByDescr", query = "SELECT t FROM TbQueijo t WHERE t.descr = :descr")
+    , @NamedQuery(name = "TbQueijo.findByCaminhoimg", query = "SELECT t FROM TbQueijo t WHERE t.caminhoimg = :caminhoimg")})
+public class TbQueijo implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "id_molho")
-    private Integer idMolho;
-    @Size(max = 60)
-    @Column(name = "nm_molho")
-    private String nmMolho;
+    @Column(name = "id_queijo")
+    private Integer idQueijo;
     @Column(name = "qte")
     private Integer qte;
+    @Size(max = 60)
+    @Column(name = "nm_queijo")
+    private String nmQueijo;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "preco")
     private Double preco;
@@ -57,30 +57,22 @@ public class TbMolho implements Serializable {
     @Size(max = 60)
     @Column(name = "caminhoimg")
     private String caminhoimg;
-    @OneToMany(mappedBy = "idMolho")
+    @OneToMany(mappedBy = "idQueijo")
     private Collection<TbLancheCriados> tbLancheCriadosCollection;
 
-    public TbMolho() {
+    public TbQueijo() {
     }
 
-    public TbMolho(Integer idMolho) {
-        this.idMolho = idMolho;
+    public TbQueijo(Integer idQueijo) {
+        this.idQueijo = idQueijo;
     }
 
-    public Integer getIdMolho() {
-        return idMolho;
+    public Integer getIdQueijo() {
+        return idQueijo;
     }
 
-    public void setIdMolho(Integer idMolho) {
-        this.idMolho = idMolho;
-    }
-
-    public String getNmMolho() {
-        return nmMolho;
-    }
-
-    public void setNmMolho(String nmMolho) {
-        this.nmMolho = nmMolho;
+    public void setIdQueijo(Integer idQueijo) {
+        this.idQueijo = idQueijo;
     }
 
     public Integer getQte() {
@@ -89,6 +81,14 @@ public class TbMolho implements Serializable {
 
     public void setQte(Integer qte) {
         this.qte = qte;
+    }
+
+    public String getNmQueijo() {
+        return nmQueijo;
+    }
+
+    public void setNmQueijo(String nmQueijo) {
+        this.nmQueijo = nmQueijo;
     }
 
     public Double getPreco() {
@@ -127,18 +127,18 @@ public class TbMolho implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idMolho != null ? idMolho.hashCode() : 0);
+        hash += (idQueijo != null ? idQueijo.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof TbMolho)) {
+        if (!(object instanceof TbQueijo)) {
             return false;
         }
-        TbMolho other = (TbMolho) object;
-        if ((this.idMolho == null && other.idMolho != null) || (this.idMolho != null && !this.idMolho.equals(other.idMolho))) {
+        TbQueijo other = (TbQueijo) object;
+        if ((this.idQueijo == null && other.idQueijo != null) || (this.idQueijo != null && !this.idQueijo.equals(other.idQueijo))) {
             return false;
         }
         return true;
@@ -146,7 +146,7 @@ public class TbMolho implements Serializable {
 
     @Override
     public String toString() {
-        return "entidade.TbMolho[ idMolho=" + idMolho + " ]";
+        return "entidades.TbQueijo[ idQueijo=" + idQueijo + " ]";
     }
     
 }
