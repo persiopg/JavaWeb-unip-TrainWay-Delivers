@@ -1,5 +1,7 @@
 <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                xmlns:f="http://xmlns.jcp.org/jsf/core">
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
     
     <nav class="navbar sticky-top navbar-expand-md navbar-dark navbar-transparente">
             <!-- Brand -->
@@ -19,16 +21,27 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="carrinho.xhtml">Carrinho</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="cadastro.xhtml">Cadastre-se</a>
-                    </li>
-                    <li class="nav-item nav-right ">
-                        <a class="nav-link text-dark" href="Logar.xhtml">Logar</a>
-                    </li>
+                    <c:if test="${clienteManagedBean.cliente.nmCliente == null}">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="cadastro.xhtml">Cadastre-se</a>
+                        </li>                    
+                        <li class="nav-item nav-right ">
+                            <a class="nav-link text-dark" href="Logar.xhtml">Logar</a>
+                        </li>
+                    </c:if>
                 </ul>
             </div>
-            <div class="collapse navbar-collapse justify-content-end" id="demo">
-                <a class="nav-link text-dark" href="#">Test</a>
+            <div class="collapse navbar-collapse justify-content-end" id="demo">                
+                <c:if test="${clienteManagedBean.cliente.nmCliente != null}"> 
+                    <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#">#{clienteManagedBean.cliente.nmCliente}</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="Dados.xhtml">Dados</a>
+                        <div class="dropdown-divider"></div>
+                        <h:form>
+                            <h:commandButton id="Sair" class="btn dropdown-item" value="Sair" action="#{clienteManagedBean.logout()}"/>
+                        </h:form>
+                    </div>
+                </c:if>
             </div>
         </nav> 
     <!-- espaco entre menu e o conteudo-->

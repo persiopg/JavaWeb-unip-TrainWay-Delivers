@@ -8,46 +8,33 @@
     </h:head>
     <h:body>
         <f:view>
-
-
             <h:form>
-                    <h1><h:outputText value="Create/Edit"/></h1>
-                    <h:panelGrid columns="2">
-                        <h:outputLabel value="IdCliente:" for="idCliente" />
-                        <h:inputText id="idCliente" value="#{clienteManagedBean.cliente.idCliente}" title="IdCliente" required="true" requiredMessage="The IdCliente field is required."/>
-                        <h:outputLabel value="NmCliente:" for="nmCliente" />
-                        <h:inputText id="nmCliente" value="#{clienteManagedBean.cliente.nmCliente}" title="NmCliente" />
-                        <h:outputLabel value="Apelido:" for="apelido" />
-                        <h:inputText id="apelido" value="#{clienteManagedBean.cliente.apelido}" title="Apelido" />
-                        <h:outputLabel value="Senha:" for="senha" />
-                        <h:inputText id="senha" value="#{clienteManagedBean.cliente.senha}" title="Senha" />
-                        <h:outputLabel value="Cpf:" for="cpf" />
-                        <h:inputText id="cpf" value="#{clienteManagedBean.cliente.cpf}" title="Cpf" />
-                        <h:outputLabel value="IdEnd:" for="idEnd" />     
-                    </h:panelGrid>
-                    <h1><h:outputText value="Create/Edit"/></h1>
-                    <h:panelGrid columns="2">
-                        <h:outputLabel value="IdEnd:" for="idEnd" />
-                        <h:inputText id="idEnd" value="#{clienteManagedBean.endereco.idEnd}" title="IdEnd" required="true" requiredMessage="The IdEnd field is required."/>
-                        <h:outputLabel value="Rua:" for="rua" />
-                        <h:inputText id="rua" value="#{clienteManagedBean.endereco.rua}" title="Rua" />
-                        <h:outputLabel value="Numero:" for="numero" />
-                        <h:inputText id="numero" value="#{clienteManagedBean.endereco.numero}" title="Numero" />
-                        <h:outputLabel value="Complemento:" for="complemento" />
-                        <h:inputText id="complemento" value="#{clienteManagedBean.endereco.complemento}" title="Complemento" />
-                        <h:outputLabel value="Bairro:" for="bairro" />
-                        <h:inputText id="bairro" value="#{clienteManagedBean.endereco.bairro}" title="Bairro" />
-                        <h:outputLabel value="Cidade:" for="cidade" />
-                        <h:inputText id="cidade" value="#{clienteManagedBean.endereco.cidade}" title="Cidade" />
-                        <h:outputLabel value="Cep:" for="cep" />
-                        <h:inputText id="cep" value="#{clienteManagedBean.endereco.cep}" title="Cep" />
-                    </h:panelGrid>
-                    <h:commandButton id="Salvar" value="salvar" action="#{clienteManagedBean.inserir()}"/>
-                </h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="NmCliente:" for="nmCliente" />
+                    <h:inputText id="nmCliente" value="#{clienteManagedBean.cliente.nmCliente}" title="nome" />
+                    <h:outputLabel value="Apelido:" for="apelido" />
+                    <h:inputText id="email" value="#{clienteManagedBean.cliente.email}" title="Email" />
+                    <h:outputLabel value="Senha:" for="senha" />
+                    <h:inputSecret id="senha" value="#{clienteManagedBean.cliente.senha}" title="Senha" />
+                    <h:outputLabel value="Cpf:" for="cpf" />
+                    <h:inputText id="cpf" value="#{clienteManagedBean.cliente.cpf}" title="Cpf" />
+                    <h:outputLabel value="Rua:" for="rua" />
+                    <h:inputText id="rua" value="#{clienteManagedBean.cliente.rua}" title="Rua" />
+                    <h:outputLabel value="Numero:" for="numero" />
+                    <h:inputText id="numero" value="#{clienteManagedBean.cliente.numero}" title="Numero" />
+                    <h:outputLabel value="Complemento:" for="complemento" />
+                    <h:inputText id="complemento" value="#{clienteManagedBean.cliente.complemento}" title="Complemento" />
+                    <h:outputLabel value="Bairro:" for="bairro" />
+                    <h:inputText id="bairro" value="#{clienteManagedBean.cliente.bairro}" title="Bairro" />
+                    <h:outputLabel value="Cidade:" for="cidade" />
+                    <h:inputText id="cidade" value="#{clienteManagedBean.cliente.cidade}" title="Cidade" />
+                    <h:outputLabel value="Cep:" for="cep" />
+                    <h:inputText id="cep" value="#{clienteManagedBean.cliente.cep}" title="Cep" />
+                </h:panelGrid>
+            </h:form>
+        </f:view>
 
-                  </f:view>
-
-                    
                           
         
     </h:body>

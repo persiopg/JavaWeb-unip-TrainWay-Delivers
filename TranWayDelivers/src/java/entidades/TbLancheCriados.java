@@ -10,6 +10,8 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -17,8 +19,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -32,18 +32,32 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "TbLancheCriados.findAll", query = "SELECT t FROM TbLancheCriados t")
     , @NamedQuery(name = "TbLancheCriados.findByIdLcCriado", query = "SELECT t FROM TbLancheCriados t WHERE t.idLcCriado = :idLcCriado")
-    , @NamedQuery(name = "TbLancheCriados.findByDescr", query = "SELECT t FROM TbLancheCriados t WHERE t.descr = :descr")})
+    , @NamedQuery(name = "TbLancheCriados.findByQtepao", query = "SELECT t FROM TbLancheCriados t WHERE t.qtepao = :qtepao")
+    , @NamedQuery(name = "TbLancheCriados.findByQtemolho", query = "SELECT t FROM TbLancheCriados t WHERE t.qtemolho = :qtemolho")
+    , @NamedQuery(name = "TbLancheCriados.findByQtehambuger", query = "SELECT t FROM TbLancheCriados t WHERE t.qtehambuger = :qtehambuger")
+    , @NamedQuery(name = "TbLancheCriados.findByQtesalada", query = "SELECT t FROM TbLancheCriados t WHERE t.qtesalada = :qtesalada")
+    , @NamedQuery(name = "TbLancheCriados.findByQtequeijo", query = "SELECT t FROM TbLancheCriados t WHERE t.qtequeijo = :qtequeijo")
+    , @NamedQuery(name = "TbLancheCriados.findByQtecond", query = "SELECT t FROM TbLancheCriados t WHERE t.qtecond = :qtecond")})
 public class TbLancheCriados implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "id_lc_criado")
     private Integer idLcCriado;
-    @Size(max = 100)
-    @Column(name = "descr")
-    private String descr;
+    @Column(name = "qtepao")
+    private Integer qtepao;
+    @Column(name = "qtemolho")
+    private Integer qtemolho;
+    @Column(name = "qtehambuger")
+    private Integer qtehambuger;
+    @Column(name = "qtesalada")
+    private Integer qtesalada;
+    @Column(name = "qtequeijo")
+    private Integer qtequeijo;
+    @Column(name = "qtecond")
+    private Integer qtecond;
     @JoinColumn(name = "id_cond", referencedColumnName = "id_cond")
     @ManyToOne
     private TbCondimentos idCond;
@@ -80,12 +94,52 @@ public class TbLancheCriados implements Serializable {
         this.idLcCriado = idLcCriado;
     }
 
-    public String getDescr() {
-        return descr;
+    public Integer getQtepao() {
+        return qtepao;
     }
 
-    public void setDescr(String descr) {
-        this.descr = descr;
+    public void setQtepao(Integer qtepao) {
+        this.qtepao = qtepao;
+    }
+
+    public Integer getQtemolho() {
+        return qtemolho;
+    }
+
+    public void setQtemolho(Integer qtemolho) {
+        this.qtemolho = qtemolho;
+    }
+
+    public Integer getQtehambuger() {
+        return qtehambuger;
+    }
+
+    public void setQtehambuger(Integer qtehambuger) {
+        this.qtehambuger = qtehambuger;
+    }
+
+    public Integer getQtesalada() {
+        return qtesalada;
+    }
+
+    public void setQtesalada(Integer qtesalada) {
+        this.qtesalada = qtesalada;
+    }
+
+    public Integer getQtequeijo() {
+        return qtequeijo;
+    }
+
+    public void setQtequeijo(Integer qtequeijo) {
+        this.qtequeijo = qtequeijo;
+    }
+
+    public Integer getQtecond() {
+        return qtecond;
+    }
+
+    public void setQtecond(Integer qtecond) {
+        this.qtecond = qtecond;
     }
 
     public TbCondimentos getIdCond() {

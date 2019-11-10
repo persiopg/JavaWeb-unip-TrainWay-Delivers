@@ -7,6 +7,8 @@ package view;
 
 import entidades.TbLanches;
 import entidades.TbVenda;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -26,6 +28,7 @@ public class VendaManagedBean {
     @EJB
     private TbVendaFacade tbVendaFacade;
     private TbVenda vendas;
+    
 
     public TbVendaFacade getTbVendaFacade() {
         return tbVendaFacade;
@@ -44,7 +47,19 @@ public class VendaManagedBean {
     }
     
     public String inserir(){
-        this.tbVendaFacade.create(vendas);
+        //pega a data/hora da venda 
+        Date data = new Date();
+        SimpleDateFormat dataV = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat horaV = new SimpleDateFormat("HH:mm");
+        //formata a data/hora 
+        String dataVenda = dataV.format(data);
+        String horaVenda = horaV.format(data);  
+        //add hora e data da venda
+        vendas.setHora(horaVenda);
+        vendas.setDataVenda(dataVenda);
+        
+        //this.tbVendaFacade.create(vendas);
+        
         return null;
     }
     

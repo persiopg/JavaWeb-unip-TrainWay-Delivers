@@ -10,12 +10,13 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -33,14 +34,14 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "TbLanches.findByNmLanche", query = "SELECT t FROM TbLanches t WHERE t.nmLanche = :nmLanche")
     , @NamedQuery(name = "TbLanches.findByPreco", query = "SELECT t FROM TbLanches t WHERE t.preco = :preco")
     , @NamedQuery(name = "TbLanches.findByDescr", query = "SELECT t FROM TbLanches t WHERE t.descr = :descr")
-    , @NamedQuery(name = "TbLanches.findByTempomont", query = "SELECT t FROM TbLanches t WHERE t.tempomont = :tempomont")
+    , @NamedQuery(name = "TbLanches.findByQte", query = "SELECT t FROM TbLanches t WHERE t.qte = :qte")
     , @NamedQuery(name = "TbLanches.findByCaminhoimg", query = "SELECT t FROM TbLanches t WHERE t.caminhoimg = :caminhoimg")})
 public class TbLanches implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "id_lanche")
     private Integer idLanche;
     @Size(max = 60)
@@ -52,8 +53,8 @@ public class TbLanches implements Serializable {
     @Size(max = 255)
     @Column(name = "descr")
     private String descr;
-    @Column(name = "tempomont")
-    private Double tempomont;
+    @Column(name = "qte")
+    private Integer qte;
     @Size(max = 60)
     @Column(name = "caminhoimg")
     private String caminhoimg;
@@ -99,12 +100,12 @@ public class TbLanches implements Serializable {
         this.descr = descr;
     }
 
-    public Double getTempomont() {
-        return tempomont;
+    public Integer getQte() {
+        return qte;
     }
 
-    public void setTempomont(Double tempomont) {
-        this.tempomont = tempomont;
+    public void setQte(Integer qte) {
+        this.qte = qte;
     }
 
     public String getCaminhoimg() {

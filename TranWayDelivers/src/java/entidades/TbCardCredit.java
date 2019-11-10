@@ -10,8 +10,6 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -28,12 +26,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "TbCardCredit.findAll", query = "SELECT t FROM TbCardCredit t")
+    , @NamedQuery(name = "TbCardCredit.findByIdCliente", query = "SELECT t FROM TbCardCredit t WHERE t.idCliente = :idCliente")
     , @NamedQuery(name = "TbCardCredit.findByNumCred", query = "SELECT t FROM TbCardCredit t WHERE t.numCred = :numCred")
     , @NamedQuery(name = "TbCardCredit.findByCodSeg", query = "SELECT t FROM TbCardCredit t WHERE t.codSeg = :codSeg")
     , @NamedQuery(name = "TbCardCredit.findByVencCart", query = "SELECT t FROM TbCardCredit t WHERE t.vencCart = :vencCart")})
 public class TbCardCredit implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    @Column(name = "id_cliente")
+    private Integer idCliente;
     @Id
     @Basic(optional = false)
     @NotNull
@@ -44,15 +45,20 @@ public class TbCardCredit implements Serializable {
     @Size(max = 20)
     @Column(name = "venc_cart")
     private String vencCart;
-    @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
-    @ManyToOne
-    private TbCliente idCliente;
 
     public TbCardCredit() {
     }
 
     public TbCardCredit(Integer numCred) {
         this.numCred = numCred;
+    }
+
+    public Integer getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente = idCliente;
     }
 
     public Integer getNumCred() {
@@ -77,14 +83,6 @@ public class TbCardCredit implements Serializable {
 
     public void setVencCart(String vencCart) {
         this.vencCart = vencCart;
-    }
-
-    public TbCliente getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(TbCliente idCliente) {
-        this.idCliente = idCliente;
     }
 
     @Override

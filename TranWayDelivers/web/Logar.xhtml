@@ -29,17 +29,17 @@
                         <h4 class="card-title">#{lancheManagedBean.lanche.nmLanche}</h4>
                         <p class="card-text">#{lancheManagedBean.lanche.descr}</p>
                         <a href="mostrarMais.xhtml?parametro=#{lancheManagedBean.lanche.idLanche}" class="btn btn-primary" id="#{lancheManagedBean.lanche.idLanche}">See Profile</a>                            
-                    </div>                
+                    </div>                         
                 </div>
                 <div class="col-md-4">
                     <h:form>
                         <div class="form-group">
-                            <h:outputLabel value="NmCliente:" for="nmCliente" />
-                            <h:inputText id="nmCliente" class="form-control" value="#{clienteManagedBean.cliente.nmCliente}" title="NmCliente" />
+                            <h:outputLabel value="Email:" for="email" />
+                            <h:inputText id="email" class="form-control" value="#{clienteManagedBean.cliente.email}" title="Email" />
                         </div>
                         <div class="form-group">
                             <h:outputLabel value="Senha:" for="senha" />
-                            <h:inputText id="senha" class="form-control" value="#{clienteManagedBean.cliente.senha}" title="Senha" />
+                            <h:inputSecret id="senha" class="form-control" value="#{clienteManagedBean.cliente.senha}" title="Senha" />
                         </div>
                         <h:commandButton id="Logar" class="btn btn-primary" value="Logar" action="#{clienteManagedBean.checkLogin()}"/>
                     </h:form>

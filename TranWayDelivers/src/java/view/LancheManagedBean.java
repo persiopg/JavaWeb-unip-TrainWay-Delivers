@@ -30,7 +30,7 @@ public class LancheManagedBean {
     private List<TbLanches> LancheVendList;
     
     public TbLanches randomLanche(){
-        int random  = new Random().nextInt(5);
+        int random  = new Random().nextInt(listar().size());
         lanche = listar().get(random);
         return lanche;
     }
@@ -71,8 +71,6 @@ public class LancheManagedBean {
         this.LancheVendList = LancheVendList;
     }
     
-    
-    
     public String AddLanche(){      
         if(lanche != null){
         return "index.xhtml?faces-redirect=true";
@@ -89,7 +87,6 @@ public class LancheManagedBean {
         }
         return null;
     }
-    
    
     /**
      * Creates a new instance of LancheManagedBean

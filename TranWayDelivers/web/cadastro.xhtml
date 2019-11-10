@@ -29,25 +29,28 @@
                         <h4 class="card-title">#{lancheManagedBean.lanche.nmLanche}</h4>
                         <p class="card-text">#{lancheManagedBean.lanche.descr}</p>
                         <a href="mostrarMais.xhtml?parametro=#{lancheManagedBean.lanche.idLanche}" class="btn btn-primary" id="#{lancheManagedBean.lanche.idLanche}">See Profile</a>                            
-                    </div>                
+                    </div>   
+                    <br/>
+                    <img class="card-img-top" src="#{lancheManagedBean.randomLanche().caminhoimg}" alt="Card image" style="height: 350px;width:350px;"/>
+                    <div class="card-body">
+                        <h4 class="card-title">#{lancheManagedBean.lanche.nmLanche}</h4>
+                        <p class="card-text">#{lancheManagedBean.lanche.descr}</p>
+                        <a href="mostrarMais.xhtml?parametro=#{lancheManagedBean.lanche.idLanche}" class="btn btn-primary" id="#{lancheManagedBean.lanche.idLanche}">See Profile</a>                            
+                    </div>              
                 </div>
                 <div class="col-md-4">
                     <h:form>
                         <div class="form-group">
-                            <h:outputLabel value="IdCliente:" for="idCliente" />
-                            <h:inputText id="idCliente" class="form-control" value="#{clienteManagedBean.cliente.idCliente}" title="IdCliente" required="true" requiredMessage="The IdCliente field is required."/>
+                            <h:outputLabel value="Nome:" for="nmCliente" />
+                            <h:inputText id="nmCliente" class="form-control" value="#{clienteManagedBean.cliente.nmCliente}" title="Nome" />
                         </div>
                         <div class="form-group">
-                            <h:outputLabel value="NmCliente:" for="nmCliente" />
-                            <h:inputText id="nmCliente" class="form-control" value="#{clienteManagedBean.cliente.nmCliente}" title="NmCliente" />
-                        </div>
-                        <div class="form-group">
-                            <h:outputLabel value="Apelido:" for="apelido" />
-                            <h:inputText id="apelido" class="form-control" value="#{clienteManagedBean.cliente.apelido}" title="Apelido" />
+                            <h:outputLabel value="Email:" for="email" />
+                            <h:inputText id="email" class="form-control" value="#{clienteManagedBean.cliente.email}" title="Email" />
                         </div>
                         <div class="form-group">
                             <h:outputLabel value="Senha:" for="senha" />
-                            <h:inputText id="senha" class="form-control" value="#{clienteManagedBean.cliente.senha}" title="Senha" />
+                            <h:inputSecret id="senha" class="form-control" value="#{clienteManagedBean.cliente.senha}" title="Senha" />
                         </div>
                         <div class="form-group">
                             <h:outputLabel value="Cpf:" for="cpf" />
@@ -87,7 +90,14 @@
                         <h4 class="card-title">#{lancheManagedBean.lanche.nmLanche}</h4>
                         <p class="card-text">#{lancheManagedBean.lanche.descr}</p>
                         <a href="mostrarMais.xhtml?parametro=#{lancheManagedBean.lanche.idLanche}" class="btn btn-primary" id="#{lancheManagedBean.lanche.idLanche}">See Profile</a>                            
-                    </div>                
+                    </div>   
+                    <br/>
+                    <img class="card-img-top" src="#{lancheManagedBean.randomLanche().caminhoimg}" alt="Card image" style="height: 350px;width:350px;"/>
+                    <div class="card-body">
+                        <h4 class="card-title">#{lancheManagedBean.lanche.nmLanche}</h4>
+                        <p class="card-text">#{lancheManagedBean.lanche.descr}</p>
+                        <a href="mostrarMais.xhtml?parametro=#{lancheManagedBean.lanche.idLanche}" class="btn btn-primary" id="#{lancheManagedBean.lanche.idLanche}">See Profile</a>                            
+                    </div>              
                 </div>
             </div>
         </div>

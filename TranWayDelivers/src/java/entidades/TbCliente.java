@@ -6,19 +6,17 @@
 package entidades;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -31,7 +29,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "TbCliente.findAll", query = "SELECT t FROM TbCliente t")
     , @NamedQuery(name = "TbCliente.findByIdCliente", query = "SELECT t FROM TbCliente t WHERE t.idCliente = :idCliente")
     , @NamedQuery(name = "TbCliente.findByNmCliente", query = "SELECT t FROM TbCliente t WHERE t.nmCliente = :nmCliente")
-    , @NamedQuery(name = "TbCliente.findByApelido", query = "SELECT t FROM TbCliente t WHERE t.apelido = :apelido")
+    , @NamedQuery(name = "TbCliente.findByEmail", query = "SELECT t FROM TbCliente t WHERE t.email = :email")
     , @NamedQuery(name = "TbCliente.findBySenha", query = "SELECT t FROM TbCliente t WHERE t.senha = :senha")
     , @NamedQuery(name = "TbCliente.findByCpf", query = "SELECT t FROM TbCliente t WHERE t.cpf = :cpf")
     , @NamedQuery(name = "TbCliente.findByRua", query = "SELECT t FROM TbCliente t WHERE t.rua = :rua")
@@ -44,16 +42,17 @@ public class TbCliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "id_cliente")
     private Integer idCliente;
     @Size(max = 120)
     @Column(name = "nm_cliente")
     private String nmCliente;
-    @Size(max = 60)
-    @Column(name = "apelido")
-    private String apelido;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+    @Size(max = 120)
+    @Column(name = "email")
+    private String email;
     @Size(max = 160)
     @Column(name = "senha")
     private String senha;
@@ -77,8 +76,6 @@ public class TbCliente implements Serializable {
     private String cidade;
     @Column(name = "cep")
     private Integer cep;
-    @OneToMany(mappedBy = "idCliente")
-    private Collection<TbCardCredit> tbCardCreditCollection;
 
     public TbCliente() {
     }
@@ -103,12 +100,12 @@ public class TbCliente implements Serializable {
         this.nmCliente = nmCliente;
     }
 
-    public String getApelido() {
-        return apelido;
+    public String getEmail() {
+        return email;
     }
 
-    public void setApelido(String apelido) {
-        this.apelido = apelido;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getSenha() {
@@ -173,15 +170,6 @@ public class TbCliente implements Serializable {
 
     public void setCep(Integer cep) {
         this.cep = cep;
-    }
-
-    @XmlTransient
-    public Collection<TbCardCredit> getTbCardCreditCollection() {
-        return tbCardCreditCollection;
-    }
-
-    public void setTbCardCreditCollection(Collection<TbCardCredit> tbCardCreditCollection) {
-        this.tbCardCreditCollection = tbCardCreditCollection;
     }
 
     @Override
